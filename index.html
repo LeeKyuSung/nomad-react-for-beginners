@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script>
+    let counter = 0;
+    const root = document.getElementById("root");
+    const span = React.createElement("span", null, "Total clicks: 0");
+    const btn = React.createElement(
+      "button",
+      {
+        onClick: () => {
+          console.log("Button clicked");
+          span.textContent = `Total clicks: ${(counter += 1)}`;
+        },
+      },
+      "Click me"
+    );
+    const div = React.createElement("div", null, [span, btn]);
+    ReactDOM.render(div, root);
+  </script>
+</html>
