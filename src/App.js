@@ -1,43 +1,33 @@
-import Button from "./Button";
-import styles from "./App.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-function Hello() {
-  useEffect(() => {
-    console.log("Hello");
-    return () => console.log("Bye");
-  }, []);
-  return <div>Hello</div>;
-}
 function App() {
-  const [counter, setValue] = useState(0);
-  const [keyword, setKeyword] = useState("");
-  const onClick = () => setValue((prev) => prev + 1);
-  const onChange = (event) => setKeyword(event.target.value);
-  const [showing, setShowing] = useState(false);
-  const onClick2 = () => setShowing((prev) => !prev);
-  console.log("i run all the time");
-  useEffect(() => {
-    console.log("CALL THE API...");
-  }, []);
-  useEffect(() => {
-    if (keyword.length > 5) console.log("SEARCH FOR", keyword);
-  }, [keyword]);
-  useEffect(() => {
-    console.log("counter changed", counter);
-  }, [counter]);
+  const [toDo, setToDo] = useState("");
+  const [toDos, setToDos] = useState([]);
+  const onChangeToDo = (event) => {
+    setToDo(event.target.value);
+  };
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (toDo === "") {
+      return;
+    }
+    // setToDos([...toDos, toDo]);
+    setToDos((currentArray) => [toDo, ...currentArray]);
+    setToDo("");
+    console.log(toDos);
+  };
   return (
     <div>
-      <input
-        value={keyword}
-        onChange={onChange}
-        type="text"
-        placeholder="Search here "
-      />
-      <h1 className={styles.title}>{counter}</h1>
-      <button onClick={onClick}>click me</button>
-      <button onClick={onClick2}>{showing ? "Hide" : "Show"}</button>
-      {showing ? <Hello /> : null}
+      <h1>To Do List({toDos.length})</h1>
+      <form onSubmit={onSubmit}>
+        <input
+          onChange={onChangeToDo}
+          value={toDo}
+          type="text"
+          placeholder="Write your to do..."
+        ></input>
+        <button>Add To Do</button>
+      </form>
     </div>
   );
 }
