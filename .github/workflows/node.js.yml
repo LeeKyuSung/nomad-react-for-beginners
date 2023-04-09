@@ -17,5 +17,9 @@ jobs:
       with:
         node-version: "19.8.1"
     - run: npm install
-    - run: npm run build-prod
+    - run: npm run build
+      env:
+        CI: false
+        PUBLIC_URL: "/nomad-react-for-beginners/"
+    - run: rm -rf /home/leekyusung/nginx-root/nomad-react-for-beginners
     - run: cp -r ./build /home/leekyusung/nginx-root/nomad-react-for-beginners
