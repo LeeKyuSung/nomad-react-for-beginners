@@ -17,6 +17,7 @@ function Home() {
   }, []);
   return (
     <div>
+      <h1>Home</h1>
       {loading ? (
         <h1>"Loading..."</h1>
       ) : (
