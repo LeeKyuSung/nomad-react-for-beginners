@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/LeeKyuSung/nomad-react-for-beginners/static/js/main.34d712ca.js",
-    "index.html": "/LeeKyuSung/nomad-react-for-beginners/index.html",
-    "main.34d712ca.js.map": "/LeeKyuSung/nomad-react-for-beginners/static/js/main.34d712ca.js.map"
+    "main.js": "/nomad-react-for-beginners/static/js/main.34d712ca.js",
+    "index.html": "/nomad-react-for-beginners/index.html",
+    "main.34d712ca.js.map": "/nomad-react-for-beginners/static/js/main.34d712ca.js.map"
   },
   "entrypoints": [
     "static/js/main.34d712ca.js"
